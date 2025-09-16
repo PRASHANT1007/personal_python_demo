@@ -14,10 +14,9 @@ jobs:
     steps:
       - uses: googleapis/release-please-action@v4
         with:
-          token: ${{ secrets.PAT }}
-          release-type: simple
-          extra-files: |
-            version.yaml
-            airflow.cfg
+          with:
+            token: ${{ secrets.PAT }}
+            config-file: .release-please-config.json
+            manifest-file: .release-please-manifest.json
 
 
