@@ -1,22 +1,15 @@
-name: release-please
+name: release
 
 on:
-  workflow_dispatch:
-
-
-permissions:
-  contents: write
-  pull-requests: write
+    workflow_dispatch:
 
 jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: googleapis/release-please-action@v4
+      - name: Run Release Please
+        uses: google-github-actions/release-please-action@v4
         with:
-          with:
-            token: ${{ secrets.PAT }}
-            config-file: .release-please-config.json
-            manifest-file: .release-please-manifest.json
-
-
+          token: ${{ secrets.PAT }}
+          config-file: .release-please-config.json
+          manifest-file: .release-please-manifest.json
